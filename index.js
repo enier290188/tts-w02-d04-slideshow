@@ -3,4 +3,4 @@
     There should be NO VARIABLES OUTSIDE THE OBJECT.
     The object should have properties for:
 */
-
+let slideshow = {}
