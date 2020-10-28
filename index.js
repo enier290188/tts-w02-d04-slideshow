@@ -3,4 +3,7 @@
     There should be NO VARIABLES OUTSIDE THE OBJECT.
     The object should have properties for:
 */
-let slideshow = {}
+let slideshow = {
+    // 1. An array called photoList that contains the names of the photos as strings.
+    photoList: ['dogs', 'cats', 'birds', 'people', 'babies']
+}
