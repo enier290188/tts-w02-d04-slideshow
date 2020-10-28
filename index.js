@@ -42,9 +42,14 @@ let slideshow = {
     // 6. Create an empty property named playInterval.
     playInterval: null,
     // 7. A play() function that moves to the next photo ever 2000ms until the end. Tip - use playInterval = setInterval(fn,ms).
-    play: function () {
+    play: function (nextPhoto = true) {
         this.playInterval = setInterval(function () {
-            this.nextPhoto();
+            // 10. Playing forward or backward.
+            if (nextPhoto === true) {
+                this.nextPhoto();
+            } else {
+                this.prevPhoto();
+            }
         }.bind(this), 2000);
     },
     // 8. A pause() function that stops the slideshow. Tip - use clearInterval(playInterval).
@@ -52,6 +57,3 @@ let slideshow = {
         clearInterval(this.playInterval);
     }
 }
-
-// Test.
-slideshow.play();
