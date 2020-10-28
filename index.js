@@ -21,5 +21,14 @@ let slideshow = {
         } else {
             console.log("End of Slideshow");
         }
-    }
+    },
+    // 4. A prevPhoto() function that does the same thing, but backwards.
+    prevPhoto: function () {
+        if (this.currentPhotoIndex > 0) {
+            this.currentPhotoIndex--;
+            this.currentPhoto();
+        } else {
+            console.log("Start of Slideshow");
+        }
+    },
 }
