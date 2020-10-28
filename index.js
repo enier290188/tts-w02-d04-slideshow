@@ -5,5 +5,7 @@
 */
 let slideshow = {
     // 1. An array called photoList that contains the names of the photos as strings.
-    photoList: ['dogs', 'cats', 'birds', 'people', 'babies']
+    photoList: ['dogs', 'cats', 'birds', 'people', 'babies'],
+    // 2. An integer currentPhotoIndex that represents which photo in the photoList is currently displayed.
+    currentPhotoIndex: 0
 }
