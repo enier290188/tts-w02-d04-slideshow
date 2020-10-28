@@ -19,6 +19,8 @@ let slideshow = {
             this.printCurrentPhoto();
         } else {
             console.log("End of Slideshow");
+            // 9. Automatically pause the slideshow if it gets to the end of the photolist while playing.
+            this.pause();
         }
     },
     // 4. A prevPhoto() function that does the same thing, but backwards.
@@ -28,6 +30,8 @@ let slideshow = {
             this.printCurrentPhoto();
         } else {
             console.log("Start of Slideshow");
+            // 9. Automatically pause the slideshow if it gets to the end of the photolist while playing.
+            this.pause();
         }
     },
     // 5. A function getCurrentPhoto() that returns the current photo from the list.
