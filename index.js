@@ -8,36 +8,36 @@ let slideshow = {
     photoList: ["dogs", "cats", "birds", "people", "babies"],
     // 2. An integer currentPhotoIndex that represents which photo in the photoList is currently displayed.
     currentPhotoIndex: 0,
-    // Print currentPhoto.
-    printCurrentPhoto: function () {
-        console.log("currentPhoto is: " + this.photoList[this.currentPhotoIndex]);
-    },
     // 3. A nextPhoto() function that moves currentPhotoIndex to the next index if there is one, and logs the current photo name. Otherwise, log "End of slideshow".
     nextPhoto: function () {
-        if (this.currentPhotoIndex < this.photoList.length - 1) {
+        if (this.currentPhotoIndex >= 0 && this.currentPhotoIndex < this.photoList.length - 1) {
             this.currentPhotoIndex++;
             this.printCurrentPhoto();
         } else {
             console.log("End of Slideshow");
-            // 9. Automatically pause the slideshow if it gets to the end of the photolist while playing.
+            // 9. Automatically pause the slideshow if it gets to the end of the photoList while playing.
             this.pause();
         }
     },
     // 4. A prevPhoto() function that does the same thing, but backwards.
     prevPhoto: function () {
-        if (this.currentPhotoIndex > 0) {
+        if (this.currentPhotoIndex > 0 && this.currentPhotoIndex <= this.photoList.length) {
             this.currentPhotoIndex--;
             this.printCurrentPhoto();
         } else {
             console.log("Start of Slideshow");
-            // 9. Automatically pause the slideshow if it gets to the end of the photolist while playing.
+            // 9. Automatically pause the slideshow if it gets to the end of the photoList while playing.
             this.pause();
         }
     },
     // 5. A function getCurrentPhoto() that returns the current photo from the list.
     getCurrentPhoto: function () {
-        this.printCurrentPhoto();
-        return this.photoList[this.currentPhotoIndex];
+        if (this.currentPhotoIndex >= 0 && this.currentPhotoIndex < this.photoList.length) {
+            this.printCurrentPhoto();
+            return this.photoList[this.currentPhotoIndex];
+        } else {
+            console.log("currentPhotoIndex is 'undefined'");
+        }
     },
     // 6. Create an empty property named playInterval.
     playInterval: null,
@@ -55,5 +55,9 @@ let slideshow = {
     // 8. A pause() function that stops the slideshow. Tip - use clearInterval(playInterval).
     pause: function () {
         clearInterval(this.playInterval);
+    },
+    // Print currentPhoto.
+    printCurrentPhoto: function () {
+        console.log("currentPhoto is: " + this.photoList[this.currentPhotoIndex]);
     }
 }
