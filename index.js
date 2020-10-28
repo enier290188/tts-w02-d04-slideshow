@@ -35,4 +35,6 @@ let slideshow = {
         this.printCurrentPhoto();
         return this.photoList[this.currentPhotoIndex];
     },
+    // 6. Create an empty property named playInterval.
+    playInterval: null,
 }
