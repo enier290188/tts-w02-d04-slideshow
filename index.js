@@ -5,7 +5,21 @@
 */
 let slideshow = {
     // 1. An array called photoList that contains the names of the photos as strings.
-    photoList: ['dogs', 'cats', 'birds', 'people', 'babies'],
+    photoList: ["dogs", "cats", "birds", "people", "babies"],
     // 2. An integer currentPhotoIndex that represents which photo in the photoList is currently displayed.
-    currentPhotoIndex: 0
+    currentPhotoIndex: 0,
+    // Print currentPhoto.
+    currentPhoto: function () {
+        console.log("currentPhoto is: " + this.photoList[this.currentPhotoIndex]);
+    },
+    // 3. A nextPhoto() function that moves currentPhotoIndex to the next index if there is one, and logs the current photo name.
+    // Otherwise, log "End of slideshow".
+    nextPhoto: function () {
+        if (this.currentPhotoIndex < this.photoList.length - 1) {
+            this.currentPhotoIndex++;
+            this.currentPhoto();
+        } else {
+            console.log("End of Slideshow");
+        }
+    }
 }
