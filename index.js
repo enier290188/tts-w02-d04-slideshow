@@ -9,15 +9,14 @@ let slideshow = {
     // 2. An integer currentPhotoIndex that represents which photo in the photoList is currently displayed.
     currentPhotoIndex: 0,
     // Print currentPhoto.
-    currentPhoto: function () {
+    printCurrentPhoto: function () {
         console.log("currentPhoto is: " + this.photoList[this.currentPhotoIndex]);
     },
-    // 3. A nextPhoto() function that moves currentPhotoIndex to the next index if there is one, and logs the current photo name.
-    // Otherwise, log "End of slideshow".
+    // 3. A nextPhoto() function that moves currentPhotoIndex to the next index if there is one, and logs the current photo name. Otherwise, log "End of slideshow".
     nextPhoto: function () {
         if (this.currentPhotoIndex < this.photoList.length - 1) {
             this.currentPhotoIndex++;
-            this.currentPhoto();
+            this.printCurrentPhoto();
         } else {
             console.log("End of Slideshow");
         }
@@ -26,9 +25,14 @@ let slideshow = {
     prevPhoto: function () {
         if (this.currentPhotoIndex > 0) {
             this.currentPhotoIndex--;
-            this.currentPhoto();
+            this.printCurrentPhoto();
         } else {
             console.log("Start of Slideshow");
         }
+    },
+    // 5. A function getCurrentPhoto() that returns the current photo from the list.
+    getCurrentPhoto: function () {
+        this.printCurrentPhoto();
+        return this.photoList[this.currentPhotoIndex];
     },
 }
