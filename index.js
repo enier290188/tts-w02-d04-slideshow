@@ -40,9 +40,14 @@ let slideshow = {
     // 7. A play() function that moves to the next photo ever 2000ms until the end. Tip - use playInterval = setInterval(fn,ms).
     play: function () {
         this.playInterval = setInterval(function () {
-            this.nextPhoto()
+            this.nextPhoto();
         }.bind(this), 2000);
     },
+    // 8. A pause() function that stops the slideshow. Tip - use clearInterval(playInterval).
+    pause: function () {
+        clearInterval(this.playInterval);
+    }
 }
 
+// Test.
 slideshow.play();
