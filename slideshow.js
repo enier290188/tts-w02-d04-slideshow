@@ -10,7 +10,7 @@ let slideshow = {
     currentPhotoIndex: 0,
     // 3. A nextPhoto() function that moves currentPhotoIndex to the next index if there is one, and logs the current photo name. Otherwise, log "End of slideshow".
     nextPhoto: function () {
-        if (this.currentPhotoIndex >= 0 && this.currentPhotoIndex < this.photoList.length - 1) {
+        if (0 <= this.currentPhotoIndex && this.currentPhotoIndex < this.photoList.length - 1) {
             this.currentPhotoIndex++;
             this.printCurrentPhoto();
         } else {
@@ -21,7 +21,7 @@ let slideshow = {
     },
     // 4. A prevPhoto() function that does the same thing, but backwards.
     prevPhoto: function () {
-        if (this.currentPhotoIndex > 0 && this.currentPhotoIndex <= this.photoList.length) {
+        if (0 < this.currentPhotoIndex && this.currentPhotoIndex <= this.photoList.length - 1) {
             this.currentPhotoIndex--;
             this.printCurrentPhoto();
         } else {
@@ -32,25 +32,25 @@ let slideshow = {
     },
     // 5. A function getCurrentPhoto() that returns the current photo from the list.
     getCurrentPhoto: function () {
-        if (this.currentPhotoIndex >= 0 && this.currentPhotoIndex < this.photoList.length) {
+        if (0 <= this.currentPhotoIndex && this.currentPhotoIndex <= this.photoList.length - 1) {
             this.printCurrentPhoto();
             return this.photoList[this.currentPhotoIndex];
         } else {
-            console.log("currentPhotoIndex is 'undefined'");
+            console.log("currentPhotoIndex is not valid");
         }
     },
     // 6. Create an empty property named playInterval.
     playInterval: null,
     // 7. A play() function that moves to the next photo ever 2000ms until the end. Tip - use playInterval = setInterval(fn,ms).
     play: function (nextPhoto = true) {
-        this.playInterval = setInterval(function () {
+        this.playInterval = setInterval(() => {
             // 10. Playing forward or backward.
             if (nextPhoto === true) {
                 this.nextPhoto();
             } else {
                 this.prevPhoto();
             }
-        }.bind(this), 2000);
+        }, 2000);
     },
     // 8. A pause() function that stops the slideshow. Tip - use clearInterval(playInterval).
     pause: function () {
@@ -58,6 +58,6 @@ let slideshow = {
     },
     // Print currentPhoto.
     printCurrentPhoto: function () {
-        console.log("currentPhoto is: " + this.photoList[this.currentPhotoIndex]);
+        console.log(`currentPhoto is: ${this.photoList[this.currentPhotoIndex]}`);
     }
 }
